@@ -39,3 +39,25 @@ config.password}@${config.host}:${config.port}/${ config.database}`);
  throw 'Database query error';
   }
 };
+
+export const run_update =async(query,values)=>{
+ try{
+  const sequelize = new Sequelize(`postgres://${config.user}:${config.password}@${config.host}:${config.port}/${config.database}`);
+
+ await sequelize.authenticate();
+  
+ let data = await sequelize.query(query, {
+ replacements: values,
+ type: QueryTypes.UPDATE
+ });
+ await sequelize.close();
+ return data;
+
+  }catch(err:any){
+   
+ console.error(err,query,values);
+ throw 'UPDATE query error';
+  
+  }
+  
+};

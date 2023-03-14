@@ -10,7 +10,7 @@ info:
   name: Apache 2.0
   url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-- url: 'https://Lab06.pingping14.repl.co'
+- url: 'https://Lab09.pingping14.repl.co'
   description: Development server
 
 tags:

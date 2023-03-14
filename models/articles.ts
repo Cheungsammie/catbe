@@ -40,17 +40,16 @@ export const add = async (article: any) => {
 export const update = async (article: any) => {
  let keys = Object.keys(article);
  let values = Object.values(article);
- //let key = keys.join(',');
-
-  let parm = '';
+ let updates='';
   for(let i: number=0; i<values.length; i++){ 
-     console.log("parm: "+parm);
-      console.log("key: "+keys[i]);
-    let query=`UPDATE articles SET ${keys[i]}=?`; 
+    updates+=`${keys[i]}=?`
     }
-
+updates=updates.slice(0,-1)
+  let sql=`UPDATE articles SET(${updates}) WHERE id = ${id}`;
+  console.log(sql);
+  
  try{
- await db.run_query(query, values);
+ await db.run_update(sql, values);
  return {status: 201};
  } catch(err: any) {
  return err;
