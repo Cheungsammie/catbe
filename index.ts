@@ -4,9 +4,11 @@ import json from "koa-json";
 import passport from 'koa-passport'
 const app: Koa = new Koa();
 import { router as articles } from "./routes/articles";
-import {router as users} from './routes/special'
+import { router as users } from './routes/special'
 
+import serve from 'koa-static-folder';
 
+app.use(serve('./docs'));
 app.use(logger());
 app.use(json());
 app.use(articles.routes());
