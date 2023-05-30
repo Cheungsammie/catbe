@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@koa/cors": "^4.0.0",
     "@types/koa": "^2.13.5",
     "@types/passport-http": "^0.3.9",
     "body-parser": "^1.20.1",
